@@ -12,5 +12,6 @@ export const validateHash = async (
   incoming: string,
   hash: string,
 ): Promise<boolean> => {
+  console.log(incoming, hash);
   return await bcrypt.compare(incoming, hash);
 };
