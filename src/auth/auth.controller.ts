@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { RegisterDTO } from './dto/register.dto';
 import { User } from 'src/users/entities/user.entity';
 import { LoginDTO } from './dto/login.dto';
-import { LoginResponseDto } from './dto/login-response.dto';
+import { JWTPayloadDTO } from './dto/jwt-payload';
 
 @Controller('/auth')
 export class AuthController {
@@ -15,7 +15,7 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login(@Body() data: LoginDTO): Promise<LoginResponseDto> {
+  async login(@Body() data: LoginDTO): Promise<JWTPayloadDTO> {
     const token = await this.authService.login(data);
     if (!token) {
       throw new BadRequestException('Incorrect login or password');

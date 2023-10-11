@@ -4,9 +4,8 @@ import { generateHash, validateHash } from './password';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
 import { LoginDTO } from './dto/login.dto';
-import { ConfigService } from '@nestjs/config';
+
 import { JwtService } from '@nestjs/jwt';
-import { LoginResponseDto } from './dto/login-response.dto';
 
 @Injectable()
 export class AuthService {
